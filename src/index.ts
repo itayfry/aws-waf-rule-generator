@@ -86,7 +86,8 @@ program
       const __dirname = dirname(fileURLToPath(import.meta.url));
       const generatedWafsDir = join(__dirname, '..', 'generated_wafs');
       await mkdir(generatedWafsDir, { recursive: true });
-      const savedFilePath = join(generatedWafsDir, `${cveId}.json`);
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const savedFilePath = join(generatedWafsDir, `${cveId}_${timestamp}.json`);
       await writeFile(savedFilePath, output, 'utf-8');
       console.log(`\nWAF rule saved to ${savedFilePath}`);
 

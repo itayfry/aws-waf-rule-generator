@@ -28,3 +28,6 @@ coverage/
 
 # Generated files
 *.generated.json
+generated_wafs/
+
+requirements/
